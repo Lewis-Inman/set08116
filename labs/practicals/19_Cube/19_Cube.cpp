@@ -18,22 +18,62 @@ bool load_content() {
       // *********************************
       // Add the position data for triangles here, (6 verts per side)
       // Front
+	  vec3(-1.0f, -1.0f, 0.0f),
+	  vec3(1.0f, 1.0f, 0.0f),
+	  vec3(-1.0f, 1.0f, 0.0f),	  
+	  
 
+	  vec3(1.0f, 1.0f, 0.0f),
+	  vec3(-1.0f, -1.0f, 0.0f),
+	  vec3(1.0f, -1.0f, 0.0f),
 
       // Back
+	  vec3(-1.0f, -1.0f, -2.0f),	  
+	  vec3(-1.0f, 1.0f, -2.0f),
+	  vec3(1.0f, 1.0f, -2.0f),
 
+
+	  vec3(1.0f, 1.0f, -2.0f),	  
+	  vec3(1.0f, -1.0f, -2.0f),
+	  vec3(-1.0f, -1.0f, -2.0f),
 
       // Right
+	  vec3(1.0f, 1.0f, 0.0f),	  
+	  vec3(1.0f, -1.0f, -2.0f),
+	  vec3(1.0f, 1.0f, -2.0f),
+
+	  vec3(1.0f, -1.0f, 0.0f),	  
+	  vec3(1.0f, -1.0f, -2.0f),
+	  vec3(1.0f, 1.0f, 0.0f),
+
 
 
       // Left
+	  vec3(-1.0f, 1.0f, 0.0f),
+	  vec3(-1.0f, 1.0f, -2.0f),
+	  vec3(-1.0f, -1.0f, -2.0f),
 
+	  vec3(-1.0f, -1.0f, 0.0f),
+	  vec3(-1.0f, 1.0f, 0.0f),
+	  vec3(-1.0f, -1.0f, -2.0f),
 
       // Top
+	  vec3(-1.0f, 1.0f, 0.0f),
+	  vec3(1.0f, 1.0f, 0.0f),
+	  vec3(-1.0f, 1.0f, -2.0f),
 
+	  vec3(1.0f, 1.0f, -2.0f),
+	  vec3(-1.0f, 1.0f, -2.0f),
+	  vec3(1.0f, 1.0f, 0.0f),
 
       // Bottom
+	  vec3(-1.0f, -1.0f, 0.0f),	  
+	  vec3(-1.0f, -1.0f, -2.0f),
+	  vec3(1.0f, -1.0f, 0.0f),
 
+	  vec3(1.0f, -1.0f, -2.0f),	  
+	  vec3(1.0f, -1.0f, 0.0f),
+	  vec3(-1.0f, -1.0f, -2.0f)
 
       // *********************************
   };
@@ -61,18 +101,18 @@ bool load_content() {
 }
 
 bool update(float delta_time) {
-  if (glfwGetKey(renderer::get_window(), GLFW_KEY_UP)) {
-    theta -= pi<float>() * delta_time;
-  }
-  if (glfwGetKey(renderer::get_window(), GLFW_KEY_DOWN)) {
-    theta += pi<float>() * delta_time;
-  }
-  if (glfwGetKey(renderer::get_window(), GLFW_KEY_RIGHT)) {
-    rho -= pi<float>() * delta_time;
-  }
-  if (glfwGetKey(renderer::get_window(), GLFW_KEY_LEFT)) {
-    rho += pi<float>() * delta_time;
-  }
+	if (glfwGetKey(renderer::get_window(), GLFW_KEY_W)) {
+		theta -= pi<float>() * delta_time;
+	}
+	if (glfwGetKey(renderer::get_window(), GLFW_KEY_S)) {
+		theta += pi<float>() * delta_time;
+	}
+	if (glfwGetKey(renderer::get_window(), GLFW_KEY_D)) {
+		rho -= pi<float>() * delta_time;
+	}
+	if (glfwGetKey(renderer::get_window(), GLFW_KEY_A)) {
+		rho += pi<float>() * delta_time;
+	}
   // Update the camera
   cam.update(delta_time);
   return true;
